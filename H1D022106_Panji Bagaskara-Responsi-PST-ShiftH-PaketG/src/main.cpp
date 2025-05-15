@@ -2,7 +2,8 @@
 
 int echoPin = D0;
 int trigPin = D1;
-int ledPin = D4;
+int redPin = D4;
+int greenPin = D5;
 
 
 long duration;
@@ -15,7 +16,8 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(echoPin, INPUT);
   pinMode(trigPin, OUTPUT);
-  pinMode(ledPin, OUTPUT);
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
 
   Serial.begin(9600);
 }
@@ -36,11 +38,13 @@ void loop() {
   Serial.println(" cm");
 
   if(distance <=10){
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(redPin, HIGH);
+    digitalWrite(greenPin, LOW);
   }else{
-    digitalWrite(ledPin, LOW);
+    digitalWrite(redPin, LOW);
+    digitalWrite(greenPin, HIGH);
   }
-  delay(500);
+  delay(1000); 
 }
 
 // put function definitions here:
